@@ -10,7 +10,7 @@ source:
   sha256: b5785c8e824eb7b02ebbe9b1e2080982d48a10db7b827a6771e04e22da99f473
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - pheutil = phe.command_line:cli
   script: "{{ PYTHON }} -m pip install . -vv"
