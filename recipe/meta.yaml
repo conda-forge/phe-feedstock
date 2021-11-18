@@ -1,34 +1,38 @@
 {% set name = "phe" %}
 {% set version = "1.4.0" %}
 
+
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/phe-{{ version }}.tar.gz
   sha256: b5785c8e824eb7b02ebbe9b1e2080982d48a10db7b827a6771e04e22da99f473
 
 build:
   number: 2
+  noarch: python
   entry_points:
     - pheutil = phe.command_line:cli
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
+    - python >=3.6
     - pip
-    - python
   run:
-    - python
+    - python >=3.6
 
 test:
   imports:
     - phe
     - phe.tests
   commands:
+    - pip check
     - pheutil --help
   requires:
+    - pip
     - click
     - gmpy2
     - numpy
