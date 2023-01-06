@@ -1,5 +1,5 @@
 {% set name = "phe" %}
-{% set version = "1.4.0" %}
+{% set version = "1.5.0" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/phe-{{ version }}.tar.gz
-  sha256: b5785c8e824eb7b02ebbe9b1e2080982d48a10db7b827a6771e04e22da99f473
+  sha256: 992fb7091d2427f0d9733946f8f350acdd4d1d012057f2aad364ba79f970339c
 
 build:
-  number: 2
+  number: 0
   noarch: python
   entry_points:
     - pheutil = phe.command_line:cli
@@ -38,13 +38,13 @@ test:
     - numpy
 
 about:
-  home: "https://github.com/data61/python-paillier"
+  home: https://github.com/data61/python-paillier
   license: GPL-3.0-only AND Apache-2.0
   license_family: GPL3
   license_file: LICENSE.txt
-  summary: "Partially Homomorphic Encryption library for Python"
-  doc_url: "https://python-paillier.readthedocs.io/en/stable"
-  dev_url: "https://github.com/data61/python-paillier"
+  summary: Partially Homomorphic Encryption library for Python
+  doc_url: https://python-paillier.readthedocs.io/en/stable
+  dev_url: https://github.com/data61/python-paillier
 
 extra:
   recipe-maintainers:
