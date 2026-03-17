@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/phe-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/phe-{{ version }}.tar.gz
   sha256: 992fb7091d2427f0d9733946f8f350acdd4d1d012057f2aad364ba79f970339c
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - pheutil = phe.command_line:cli
@@ -19,10 +19,10 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -36,6 +36,7 @@ test:
     - click
     - gmpy2
     - numpy
+    - python {{ python_min }}
 
 about:
   home: https://github.com/data61/python-paillier
